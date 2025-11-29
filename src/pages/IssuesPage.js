@@ -1,8 +1,9 @@
+import { BasePage } from './BasePage';
 import { expect } from '@playwright/test';
 
-export class IssuesPage {
+export class IssuesPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     this.issuesHeading = page.getByRole('heading', { name: 'Issues' });
 
     this.addFilterDropdown = page.locator('#add_filter_select');
