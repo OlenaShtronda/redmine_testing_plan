@@ -3,7 +3,7 @@ import { test, expect } from '../fixtures/pages';
 test.describe('Issues page tests', () => {
   test.beforeEach(async ({ homepage, issuesPage }) => {
     await homepage.open();
-    await homepage.openIssuesPage();
+    await homepage.navigate(homepage.issuesLink);
     await issuesPage.assertIssuesPageIsOpened();
   });
 
