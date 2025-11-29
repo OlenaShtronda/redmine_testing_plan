@@ -1,8 +1,9 @@
+import { BasePage } from './BasePage';
 import { expect } from '@playwright/test';
 
-export class RegistrationPage {
+export class RegistrationPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     this.registerHeading = page.getByRole('heading', { name: 'Register' });
     this.submitButton = page.getByRole('button', { name: 'Submit' });
     this.errorBox = page.locator('#errorExplanation');

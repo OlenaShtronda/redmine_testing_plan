@@ -1,19 +1,9 @@
-export class HomePage {
+import { BasePage } from './BasePage';
+
+export class HomePage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     this.registerLink = page.getByRole('link', { name: 'Register' });
     this.issuesLink = page.getByRole('link', { name: 'Issues' });
-  }
-
-  async open() {
-    await this.page.goto('/');
-  }
-
-  async openRegistrationPage() {
-    await this.registerLink.click();
-  }
-
-  async openIssuesPage() {
-    await this.issuesLink.click();
   }
 }
