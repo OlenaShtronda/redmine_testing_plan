@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 test.describe('Registration page tests', () => {
   test.beforeEach(async ({ homepage, registrationPage }) => {
     await homepage.open();
-    await homepage.openRegistrationPage();
+    await homepage.navigate(homepage.registerLink);
     await registrationPage.assertRegistrationPageIsOpened();
   });
 
