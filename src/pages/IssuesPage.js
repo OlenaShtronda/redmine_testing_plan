@@ -29,7 +29,14 @@ export class IssuesPage extends BasePage {
   }
 
   async addTrackerFilter() {
+    // await this.page.screenshot({ path: 'debug1.png' });
     await this.addFilterDropdown.selectOption({ value: 'tracker_id' });
+    // await this.page.screenshot({ path: 'debug2.png' });
+    // await this.page.click('body'); // removes focus → UI updates
+    // await this.page.mouse.click(0, 0);
+    // await this.page.click('html', { position: { x: 0, y: 0 } });
+    // await this.page.screenshot({ path: 'debug3.png' });
+    // await this.page.evaluate(() => document.activeElement?.blur());
   }
 
   async assertTrackerFilterControlsAreVisible() {
