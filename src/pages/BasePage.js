@@ -10,7 +10,10 @@ export class BasePage {
   }
 
   async navigate(locator) {
-    await locator.click();
+    await Promise.all([
+      this.page.waitForNavigation({ waitUntil: 'load', timeout: 10000 }),
+      locator.click(),
+    ]);
   }
 
   async assertLinkIsVisible(locator) {
