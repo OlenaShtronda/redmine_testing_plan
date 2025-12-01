@@ -3,11 +3,12 @@ import { test, expect } from '../fixtures/pages';
 test.describe('Issues page tests', () => {
   test.beforeEach(async ({ homepage, issuesPage }) => {
     await homepage.open();
+    await homepage.assertLinkIsVisible(homepage.issuesLink);
     await homepage.navigate(homepage.issuesLink);
     await issuesPage.assertIssuesPageIsOpened();
   });
 
-  test('Assert issues are filtered correctly when user selects tracker on the "Overview" tab', async ({ issuesPage }) => {
+  test('Assert "Tracker" filter works correctly', async ({ issuesPage }) => {
     await issuesPage.addTrackerFilter();
     await issuesPage.assertTrackerFilterControlsAreVisible();
     await issuesPage.selectTracker('Patch');

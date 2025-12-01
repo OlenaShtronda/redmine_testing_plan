@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test';
+
 export class BasePage {
   constructor(page) {
     this.page = page;
@@ -9,5 +11,9 @@ export class BasePage {
 
   async navigate(locator) {
     await locator.click();
+  }
+
+  async assertLinkIsVisible(locator) {
+    await expect(locator).toBeVisible();
   }
 }
