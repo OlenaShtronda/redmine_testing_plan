@@ -4,6 +4,7 @@ import { faker } from '@faker-js/faker';
 test.describe('Registration page tests', () => {
   test.beforeEach(async ({ homepage, registrationPage }) => {
     await homepage.open();
+    await homepage.assertLinkIsVisible(homepage.registerLink);
     await homepage.navigate(homepage.registerLink);
     await registrationPage.assertRegistrationPageIsOpened();
   });
@@ -24,6 +25,7 @@ test.describe('Registration page tests', () => {
     const password = faker.internet.password({ length: 7 });
 
     await registrationPage.fillRequiredFields(login, password, password, firstName, lastName, email);
+    await registrationPage.assertRequiredFieldsHaveCorrectValues(login, password, password, firstName, lastName, email);
     await registrationPage.clickSubmitButton();
     await registrationPage.assertErrorBoxIsVisible();
     await registrationPage.assertValidationMessageIsVisible();

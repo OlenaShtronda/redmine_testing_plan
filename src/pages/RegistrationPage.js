@@ -83,6 +83,15 @@ export class RegistrationPage extends BasePage {
     await this.emailField.fill(email);
   }
 
+  async assertRequiredFieldsHaveCorrectValues(login, password, confirmation, firstName, lastName, email) {
+    await expect(this.loginField).toHaveValue(login);
+    await expect(this.passwordField).toHaveValue(password);
+    await expect(this.confirmationField).toHaveValue(confirmation);
+    await expect(this.firstNameField).toHaveValue(firstName);
+    await expect(this.lastNameField).toHaveValue(lastName);
+    await expect(this.emailField).toHaveValue(email);
+  }
+
   async assertValidationMessageIsVisible() {
     await expect(this.errorBox).toContainText('Password is too short (minimum is 8 characters)');
   }
